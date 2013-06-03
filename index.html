@@ -1,0 +1,65 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>Raspberry Pi Mini Monitor</title>
+	<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script> 
+	<script type="text/javascript">
+		// Load the Visualization API and the piechart package.
+      	google.load('visualization', '1.0', {'packages':['corechart']});
+
+		function drawChart(dateP, loadP) {
+        	// Create the data table.
+        	var data = new google.visualization.DataTable();
+			var len = dateP.length;
+
+        	data.addColumn('datetime', 'Time');
+			data.addColumn('number', 'Load');
+        	data.addRows(len);
+
+			var i = 0;
+
+			while (i < len)
+			{	
+				var day = dateP[i].substring(0, 2);
+				var month = dateP[i].substring(3, 5);
+				var year = dateP[i].substring(6, 8);
+				var time = dateP[i].substring(9, 17);
+				var d = new Date(year, month, day, time.substring(0, 2), time.substring(3, 5), time.substring(6, 8));
+				alert(d);
+				data.setCell(i, 0, d);
+				data.setCell(i, 1, parseFloat(loadP[i]));
+				i += 1;
+			}
+
+			// Set chart options
+			var options = {'title':'CPU Load'};
+
+			// Instantiate and draw our chart, passing in some options.
+			var chart = new google.visualization.LineChart(document.getElementById('chart_div'));
+			chart.draw(data, options);
+		}
+		
+		$(document).ready(function () {
+			$.get("log/stats.log", function(data) {
+				var lines = data.split("\n");
+				var i = 0;
+				var date = [];
+				var load = [];
+
+				$.each(lines, function(n, elem) {
+					date[i] = elem.substring(0,17);
+					load[i] = elem.substring(18,22);
+					i += 1;					
+				});
+
+				drawChart(date, load);
+			});
+		});
+		</script>
+</head>
+<body>
+<div id="chart_div"></div>
+</body>
+</html>

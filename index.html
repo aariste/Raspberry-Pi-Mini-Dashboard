@@ -27,7 +27,7 @@
 				var year = dateP[i].substring(6, 8);
 				var time = dateP[i].substring(9, 17);
 				var d = new Date(year, month, day, time.substring(0, 2), time.substring(3, 5), time.substring(6, 8));
-				alert(d);
+				
 				data.setCell(i, 0, d);
 				data.setCell(i, 1, parseFloat(loadP[i]));
 				i += 1;

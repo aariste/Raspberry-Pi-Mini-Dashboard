@@ -100,10 +100,10 @@
 			}
 	
 			// Set chart options
-			var options = {'title':'CPU Load'};
+			var options = {'title':'CPU Temperature'};
 	
 			// Instantiate and draw our chart, passing in some options.
-			var chart = new google.visualization.LineChart(document.getElementById('CPUchart'));
+			var chart = new google.visualization.LineChart(document.getElementById('Tempchart'));
 			chart.draw(data, options);
 		}
 		
@@ -134,5 +134,6 @@
 <body>
 <div id="CPUchart"></div>
 <div id="RAMchart"></div>
+<div id="Tempchart"></div>
 </body>
 </html>

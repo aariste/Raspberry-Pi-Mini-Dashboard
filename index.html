@@ -48,7 +48,7 @@
 			var len = dateP.length;
 	
 			data.addColumn('datetime', 'Time');			
-			data.addColumn('number', 'Used');
+			data.addColumn('number', 'Memory used');
 			data.addRows(len);
 	
 			var i = 0;
@@ -62,7 +62,7 @@
 				var d = new Date(year, month, day, time.substring(0, 2), time.substring(3, 5), time.substring(6, 8));
 				
 				data.setCell(i, 0, d);
-				data.setCell(i, 1, parseFloat(memP[i]));				
+				data.setCell(i, 1, parseFloat(memP[i]/1024));				
 				
 				i += 1;
 			}					

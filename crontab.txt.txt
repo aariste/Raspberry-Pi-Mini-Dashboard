@@ -1,0 +1,1 @@
+* *     * * *   root    raspMSG >> /WWW-LOCATION/log/stats.log

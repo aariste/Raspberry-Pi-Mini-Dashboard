@@ -27,7 +27,7 @@
 				var month = dateP[i].substring(3, 5);
 				var year = dateP[i].substring(6, 8);
 				var time = dateP[i].substring(9, 17);
-				var d = new Date(year, month, day, time.substring(0, 2), time.substring(3, 5), time.substring(6, 8));
+				var d = new Date(dateP[i]);
 				
 				data.setCell(i, 0, d);
 				data.setCell(i, 1, parseFloat(loadP[i]));
@@ -59,7 +59,7 @@
 				var month = dateP[i].substring(3, 5);
 				var year = dateP[i].substring(6, 8);
 				var time = dateP[i].substring(9, 17);
-				var d = new Date(year, month, day, time.substring(0, 2), time.substring(3, 5), time.substring(6, 8));
+				var d = new Date(dateP[i]);
 				
 				data.setCell(i, 0, d);
 				data.setCell(i, 1, parseFloat(memP[i]/1024));				
@@ -91,11 +91,12 @@
 				var day = dateP[i].substring(0, 2);
 				var month = dateP[i].substring(3, 5);
 				var year = dateP[i].substring(6, 8);
-				var time = dateP[i].substring(9, 17);
-				var d = new Date(year, month, day, time.substring(0, 2), time.substring(3, 5), time.substring(6, 8));
+				var time = dateP[i].substring(9, 17);				
+				var d = new Date(dateP[i]);
 				
 				data.setCell(i, 0, d);
 				data.setCell(i, 1, parseFloat(tempP[i]/1000));
+				
 				i += 1;
 			}
 	

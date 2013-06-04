@@ -42,13 +42,12 @@
 			chart.draw(data, options);
 		}
 		
-		function drawChartMem(dateP, freeP, usedP) {
+		function drawChartMem(dateP, memP) {
 			// Create the data table.
 			var data = new google.visualization.DataTable();
 			var len = dateP.length;
 	
-			data.addColumn('datetime', 'Time');
-			data.addColumn('number', 'Free');
+			data.addColumn('datetime', 'Time');			
 			data.addColumn('number', 'Used');
 			data.addRows(len);
 	
@@ -63,8 +62,7 @@
 				var d = new Date(year, month, day, time.substring(0, 2), time.substring(3, 5), time.substring(6, 8));
 				
 				data.setCell(i, 0, d);
-				data.setCell(i, 1, parseFloat(freeP[i]));
-				data.setCell(i, 2, parseFloat(usedP[i]));
+				data.setCell(i, 1, parseFloat(memP[i]));				
 				
 				i += 1;
 			}					
@@ -83,19 +81,17 @@
 				var i = 0;
 				var date = [];
 				var load = [];
-				var freeMem = [];
-				var usedMem = [];
+				var mem = [];				
 				
 				$.each(lines, function(n, elem) {
 					date[i] = elem.substring(0,17);
 					load[i] = elem.substring(18,22);
-					freeMem[i] = elem.substring(23,29);
-					usedMem[i] = elem.substring(30,36);
+					mem[i] = elem.substring(23,29);					
 					i += 1;				
 				});
 
 				drawChartCPU(date, load);
-				drawChartMem(date, freeMem, usedMem);
+				drawChartMem(date, mem);
 			});
 		});
 		</script>

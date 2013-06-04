@@ -1,4 +1,3 @@
-
 <!doctype html>
 <html>
 <head>
@@ -101,7 +100,7 @@
 			}
 	
 			// Set chart options
-			var options = {'title':'CPU Temperature'};
+			var options = {'title':'CPU Temperature', vAxis: {viewWindow: {max:50, min:40}}};
 	
 			// Instantiate and draw our chart, passing in some options.
 			var chart = new google.visualization.LineChart(document.getElementById('Tempchart'));

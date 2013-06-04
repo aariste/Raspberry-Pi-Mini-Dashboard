@@ -10,13 +10,13 @@
       		google.load('visualization', '1.0', {'packages':['corechart']});
 
 		function drawChart(dateP, loadP) {
-	        	// Create the data table.
-	        	var data = new google.visualization.DataTable();
+			// Create the data table.
+			var data = new google.visualization.DataTable();
 			var len = dateP.length;
 	
-	        	data.addColumn('datetime', 'Time');
+			data.addColumn('datetime', 'Time');
 			data.addColumn('number', 'Load');
-	        	data.addRows(len);
+			data.addRows(len);
 	
 			var i = 0;
 	

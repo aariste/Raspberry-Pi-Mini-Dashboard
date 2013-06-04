@@ -107,6 +107,39 @@
 			chart.draw(data, options);
 		}
 		
+		function drawChartBandwidth(dateP, sentP, recP) {
+			// Create the data table.
+			var data = new google.visualization.DataTable();
+			var len = dateP.length;
+	
+			data.addColumn('datetime', 'Time');
+			data.addColumn('number', 'Temp ºC');
+			data.addRows(len);
+	
+			var i = 0;
+	
+			while (i < len)
+			{	
+				var day = dateP[i].substring(0, 2);
+				var month = dateP[i].substring(3, 5);
+				var year = dateP[i].substring(6, 8);
+				var time = dateP[i].substring(9, 17);				
+				var d = new Date(dateP[i]);
+				
+				data.setCell(i, 0, d);
+				data.setCell(i, 1, parseFloat(tempP[i]/1000));
+				
+				i += 1;
+			}
+	
+			// Set chart options
+			var options = {'title':'CPU Temperature', vAxis: {viewWindow: {max:50, min:40}}};
+	
+			// Instantiate and draw our chart, passing in some options.
+			var chart = new google.visualization.LineChart(document.getElementById('Tempchart'));
+			chart.draw(data, options);
+		}
+		
 		$(document).ready(function () {
 			$.get("log/stats.log", function(data) {
 				var lines = data.split("\n");
@@ -115,12 +148,16 @@
 				var load = [];
 				var mem = [];			
 				var temp = [];
+				var sent = [];
+				var received = [];
 				
 				$.each(lines, function(n, elem) {
 					date[i] = elem.substring(0,17);
 					load[i] = elem.substring(18,22);
 					mem[i] = elem.substring(23,29);			
 					temp[i] = elem.substring(30, 35);
+					sent[i] = elem.substring(36,40);
+					
 					i += 1;				
 				});
 
@@ -135,5 +172,6 @@
 <div id="CPUchart"></div>
 <div id="RAMchart"></div>
 <div id="Tempchart"></div>
+<div id="Bandwidthchart"></div>
 </body>
 </html>

@@ -19,7 +19,8 @@ You can see the live stats of my Raspi at http://stats.ariste.info.
 **Installation**
 
 1. Copy the content of the html folder to the root directory of your web server.
-2. Copy the content of the script folder to /usr/bin or any other of your choice.
+2. Make a "sudo chmod +x script_name" to the scripts in the scripts folder and copy the scripts to /usr/bin or
+any other directory of your choice.
 3. Edit your crontab. There's some examples in the crontab.txt file for help.
 4. Wait some time so the scripts create the logs.
 5. Point your browser to the location of index.html.

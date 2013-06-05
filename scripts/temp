@@ -2,4 +2,4 @@
 datetime=`date +"%d-%m-%y %T"`
 temp=`cat /sys/class/thermal/thermal_zone0/temp`
 temp=$((temp))
-echo $datetime $temp
+echo $datetime','$temp

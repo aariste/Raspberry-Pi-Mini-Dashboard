@@ -1,1 +1,3 @@
-* *     * * *   root    raspMSG >> /WWW-LOCATION/log/stats.log
+*/5 *     * * *   root    raspMSG >> /WWW-LOCATION/log/cpu.log
+*/5 *     * * *   root    raspMSG >> /WWW-LOCATION/log/mem.log
+*/5 *     * * *   root    raspMSG >> /WWW-LOCATION/log/temp.log

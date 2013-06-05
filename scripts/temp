@@ -1,5 +1,5 @@
-#!/bin/sh
+#!/bin/bash
 datetime=`date +"%d-%m-%y %T"`
 temp=`cat /sys/class/thermal/thermal_zone0/temp`
-temp=$((temp/1000))
-echo $datetime','$temp
+temp=$((temp))
+echo $datetime','${temp:0:2}'.'${temp:2:5}

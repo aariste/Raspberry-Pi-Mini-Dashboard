@@ -1,4 +1,4 @@
-Raspberry Pi mini monitoring tool
+Raspberry Pi Mini Dashboard
 ==============
 
 After trying some monitoring tools like Cacti or Nagios on my 1st gen Raspberry Pi, and seeing that either they used too 

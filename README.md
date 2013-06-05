@@ -32,4 +32,4 @@ any other directory of your choice.
 - Think about using a SQLite database instead of logs.
 - Let the user choose the period of time to be displayed.
 
-contact: adria@ariste.info
+contact: adria (at) ariste (dot) info

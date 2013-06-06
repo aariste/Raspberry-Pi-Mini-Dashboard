@@ -4,54 +4,118 @@
 	<title>Raspberry Pi Mini Dashboard</title>
 	<script type="text/javascript" src="js/dygraph-combined.js"></script>	
 	<!--[if IE]>
-    <script type="text/javascript" src="js/excanvas.js"></script>
-    <![endif]-->
-	<style>
+	<script type="text/javascript" src="js/excanvas.js"></script>
+	<![endif]-->
+	
+	<style media="screen" type="text/css">
+	html, body {
+		margin:0;
+		padding:0;
+		height:100%;
+	}
+	
+	#container {
+		min-height:100%;
+		position:relative;
+	}
+	
+	#header {		
+		padding:10px;
+	}
+	
+	#body {
+		padding:10px;
+		padding-bottom:60px;
+	}
+	
+	#footer {
+		position:absolute;
+		bottom:0;
+		width:100%;
+		height:60px;		
+	}
+	
+	#header p, #header h1 {
+		margin:0;
+		padding:10px 0 0 10px;
+	}
+	
+	#footer p {
+		margin:0;
+		padding:10px;
+	}
+	
 	#CPUchart, #RAMchart, #Tempchart {
 		width: 90%;
 		height: 300px;
 		margin-bottom: 30px;
 	}
+	
+	.logo {
+		font-family: "Georgia";
+		font-size: 150%;
+	}
 	</style>
+	
+	<!--[if lt IE 7]>
+	<style media="screen" type="text/css">
+	#container {
+		height:100%;
+	}
+	</style>
+	<![endif]-->
 </head>
+
 <body>
-	<div id="CPUchart"></div>
-	<script type="text/javascript">
-		g = new Dygraph(document.getElementById("CPUchart"),
-			'log/cpu.log',
-			{            
-			labels: ['Date', 'Load'],
-			title: 'CPU Load',
-			ylabel: 'Load',
-			xLabel: 'Date'            
-			}
-		);
-	</script>
-	
-	<div id="RAMchart"></div>
-	<script type="text/javascript">
-		g = new Dygraph(document.getElementById("RAMchart"),
-			'log/mem.log',
-			{     			
-			labels: ['Date', 'Free', 'Free Swap'],
-			title: 'Memory usage',
-			ylabel: 'Memory (MB)',
-			xLabel: 'Date',
-			}
-		);			
-	</script>
-	
-	<div id="Tempchart"></div>
-	<script type="text/javascript">
-		g = new Dygraph(document.getElementById("Tempchart"),
-			'log/temp.log',
-			{            
-			labels: ['Date', 'Temperature'],
-			title: 'CPU Temperature',
-			ylabel: '&deg;C',
-			xLabel: 'Date'            
-			}
-		);
-	</script>
+	<div id="container">
+		<div id="header">
+			<span class="logo"><img src="img/raspiLogo.png" alt="Raspberry Pi Mini Dashboard" /> Raspberry Pi Mini Dashboard</span>
+		</div>
+		
+		<div id="body">
+			<div id="CPUchart"></div>
+			<script type="text/javascript">
+				g = new Dygraph(document.getElementById("CPUchart"),
+					'log/cpu.log',
+					{            
+					labels: ['Date', 'Load'],
+					title: 'CPU Load',
+					ylabel: 'Load',
+					xLabel: 'Date'            
+					}
+				);
+			</script>
+			
+			<div id="RAMchart"></div>
+			<script type="text/javascript">
+				g = new Dygraph(document.getElementById("RAMchart"),
+					'log/mem.log',
+					{     			
+					labels: ['Date', 'Used RAM', 'Used Swap'],
+					title: 'Memory usage',
+					ylabel: 'Memory (MB)',
+					xLabel: 'Date',
+					}
+				);			
+			</script>
+			
+			<div id="Tempchart"></div>
+			<script type="text/javascript">
+				g = new Dygraph(document.getElementById("Tempchart"),
+					'log/temp.log',
+					{            
+					labels: ['Date', 'Temperature'],
+					title: 'CPU Temperature',
+					ylabel: '&deg;C',
+					xLabel: 'Date'            
+					}
+				);
+			</script>
+		</div>
+		
+		<div id="footer">
+			Stats by <a href="http://aariste.github.io/Raspberry-Pi-Mini-Dashboard/">Raspberry Pi Mini Dashboard</a>.
+		</div>
+	</div>	
 </body>
 </html>

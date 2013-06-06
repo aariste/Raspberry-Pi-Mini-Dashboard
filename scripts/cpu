@@ -1,4 +1,4 @@
 #!/bin/sh
-datetime=`date +"%D %T"`
+datetime=`date +"%m-%d-%y %T"`
 loadavg=`head -c 4 /proc/loadavg`
 echo $datetime','$loadavg

@@ -1,5 +1,5 @@
 #!/bin/sh
-datetime=`date +"%d-%m-%y %T"`
+datetime=`date +"%m-%d-%y %T"`
 memTotal=`cat /proc/meminfo | grep '^MemTotal' | tr -cd '0-9'`
 memFree=`cat /proc/meminfo | grep '^MemFree' | tr -cd '0-9'`
 memUse=$((memTotal-memFree))

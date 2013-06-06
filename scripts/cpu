@@ -1,4 +1,9 @@
 #!/bin/sh
 datetime=`date +"%m-%d-%y %T"`
-loadavg=`head -c 4 /proc/loadavg`
-echo $datetime','$loadavg
+memTotal=`cat /proc/meminfo | grep '^MemTotal' | tr -cd '0-9'`
+memFree=`cat /proc/meminfo | grep '^MemFree' | tr -cd '0-9'`
+buffers=`cat /proc/meminfo | grep '^Buffers' | tr -cd '0-9'`
+cached=`cat /proc/meminfo | grep '^Cached' | tr -cd '0-9'`
+memUse=$((memTotal-(memFree+cached+buffers)))
+memDisp=$((memTotal-memUse))
+echo $datetime','$memUse','$memDisp

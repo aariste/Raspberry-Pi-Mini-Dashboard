@@ -3,6 +3,9 @@
 	<meta charset="utf-8" />
 	<title>Raspberry Pi Mini Dashboard</title>
 	<script type="text/javascript" src="js/dygraph-combined.js"></script>	
+	<!--[if IE]>
+    <script type="text/javascript" src="js/excanvas.js"></script>
+    <![endif]-->
 	<style>
 	#CPUchart, #RAMchart, #Tempchart {
 		width: 90%;
@@ -30,10 +33,10 @@
 		g = new Dygraph(document.getElementById("RAMchart"),
 			'log/mem.log',
 			{     			
-			labels: ['Date', 'Memory'],
+			labels: ['Date', 'Used', 'Free'],
 			title: 'Memory usage',
-			ylabel: 'Memory',
-			xLabel: 'Date'            
+			ylabel: 'Memory (MB)',
+			xLabel: 'Date',
 			}
 		);			
 	</script>

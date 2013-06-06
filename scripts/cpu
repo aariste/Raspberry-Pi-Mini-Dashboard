@@ -5,5 +5,5 @@ memFree=`cat /proc/meminfo | grep '^MemFree' | tr -cd '0-9'`
 buffers=`cat /proc/meminfo | grep '^Buffers' | tr -cd '0-9'`
 cached=`cat /proc/meminfo | grep '^Cached' | tr -cd '0-9'`
 memUse=$((((memTotal-(memFree+cached+buffers)))/1024))
-memDisp=$(((memTotal-memUse)/1024))
+memDisp=$(((memFree+cached+buffers)/1024))
 echo $datetime','$memUse','$memDisp

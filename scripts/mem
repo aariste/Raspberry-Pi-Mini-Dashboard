@@ -2,8 +2,10 @@
 datetime=`date +"%m-%d-%y %T"`
 memTotal=`cat /proc/meminfo | grep '^MemTotal' | tr -cd '0-9'`
 memFree=`cat /proc/meminfo | grep '^MemFree' | tr -cd '0-9'`
+buffers=`cat /proc/meminfo | grep '^Buffers:' | tr -cd '0-9'`
+cached=`cat /proc/meminfo | grep '^Cached:' | tr -cd '0-9'`
 swapTotal=`cat /proc/meminfo | grep '^SwapTotal' | tr -cd '0-9'`
 swapFree=`cat /proc/meminfo | grep '^SwapFree' | tr -cd '0-9'`
-memUse=$(((memTotal-memFree)/1024))
+memUse=$(((memTotal-(memFree+buffers+cached))/1024))
 swapUse=$(((swapTotal-swapFree)/1024))
 echo $datetime','$memUse','$swapUse

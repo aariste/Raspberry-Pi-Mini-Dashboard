@@ -5,9 +5,9 @@ After trying some monitoring tools like Cacti or Nagios on my 1st gen Raspberry 
 many resources or had too many options I wouldn't use, I decided to develop a really simple dashboard that would show 
 some system stats.
 
-Right now it's just showing the CPU load and temperature and the memory usage.
+Right now it's only showing the CPU load and temperature and the memory usage.
 
-It's just HTML plus the dygraphs JavaScript Visualization Library (http://dygraphs.com) which is used to display the charts.
+It's plain HTML plus the dygraphs JavaScript Visualization Library (http://dygraphs.com) which is used to display the charts.
 
 You can see the live stats of my Raspi at http://stats.ariste.info.
 

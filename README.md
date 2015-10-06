@@ -35,6 +35,6 @@ any other directory of your choice.
 contact: adria (at) ariste (dot) info
 
 
-Raspberry Pi Mini Dashboard is available under the GNU GPL License, included in LICENSE.txt.
+Raspberry Pi Mini Dashboard is available under the MIT License, included in LICENSE.txt.
 
 dygraphs is available under the MIT license.
